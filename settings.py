@@ -25,3 +25,8 @@ LOGIN_DATA = {
 
 SENSES_URL = 'http://v2.same.com/channel/1176813/senses'
 
+AUTH_TOKEN_FILENAME = 'user'
+
+ADDRESS_ID = 72858
+
+KILLER_URL = 'http://payment.ohsame.com/order_create'

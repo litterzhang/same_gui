@@ -60,7 +60,7 @@
      </font>
     </property>
     <property name="focusPolicy">
-     <enum>Qt::TabFocus</enum>
+     <enum>Qt::StrongFocus</enum>
     </property>
     <property name="inputMethodHints">
      <set>Qt::ImhDigitsOnly</set>
@@ -100,7 +100,7 @@
      </font>
     </property>
     <property name="focusPolicy">
-     <enum>Qt::TabFocus</enum>
+     <enum>Qt::StrongFocus</enum>
     </property>
     <property name="contextMenuPolicy">
      <enum>Qt::NoContextMenu</enum>

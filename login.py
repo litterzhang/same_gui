@@ -9,6 +9,7 @@ from PyQt5 import QtWidgets
 from UI.LoginUI import LoginUI
 from settings import LOGIN_DATA, LOGIN_URL
 import auth as AUTH
+import windows
 
 class login_win(QtWidgets.QMainWindow, LoginUI):
 	def __init__(self):
@@ -18,11 +19,18 @@ class login_win(QtWidgets.QMainWindow, LoginUI):
 		self.Login.clicked.connect(self._login)
 
 	def _login(self):
-		username = self.UserName.toPlainText()
-		password = self.Password.toPlainText()
+		username = self.UserName.text().strip()
+		password = self.Password.text().strip()
 
-		res_login = same_login(username, password)
-		print(res_login)
+		res_login, res_login_msg = same_login(username, password)
+
+		if res_login:
+			QtWidgets.QMessageBox.information(self, "成功", res_login_msg)
+			self.close()
+
+			windows.killer_show.show()
+		else:
+			QtWidgets.QMessageBox.critical(self, "错误", res_login_msg)
 
 def same_login(username, password):
 	LOGIN_DATA['mobile'] = '+86-' + str(username)
@@ -36,8 +44,8 @@ def same_login(username, password):
 		if code==0:
 			AUTH.auth_login(r_j['data']['user'])
 		else:
-			raise r_j['detail']
+			raise Exception(r_j['detail'])
 	except Exception as e:
-		return '登录失败：%s' % str(e)
-	return '登录成功：%s' % AUTH._user['mobile']
+		return False, '登录失败：%s' % str(e)
+	return True, '登录成功：%s' % AUTH._user['mobile']
 

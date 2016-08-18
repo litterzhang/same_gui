@@ -6,10 +6,12 @@
 __author__ = 'litter_zhang'
 
 import sys
-from login import login_win
-from PyQt5 import QtWidgets
+import auth
+import windows
 
-app = QtWidgets.QApplication(sys.argv)
-login_show = login_win()
-login_show.show()
-sys.exit(app.exec_())
+if not auth.auth_login_with_token():
+	windows.login_show.show()
+else:
+	windows.killer_show.show()
+
+sys.exit(windows.app.exec_())
