@@ -30,3 +30,5 @@ AUTH_TOKEN_FILENAME = 'user'
 ADDRESS_ID = 72858
 
 KILLER_URL = 'http://payment.ohsame.com/order_create'
+
+TIME_URL = 'http://payment.ohsame.com/serverinfo'
