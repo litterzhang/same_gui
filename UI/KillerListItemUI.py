@@ -102,7 +102,6 @@ class KillerListItemUI(QtWidgets.QWidget):
 			try:
 				p_id = self.ProductData.get('id', None)
 				p_start = int(self.ProductData.get('start_at', time.time()))
-				# p_start = time.time() + 5
 				self.printf('添加秒杀任务 %s %s' % (p_id, time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(int(p_start)))))
 				
 				#开始秒杀多线程秒杀
