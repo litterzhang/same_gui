@@ -8,8 +8,9 @@ __author__ = 'litter_zhang'
 from PyQt5 import QtWidgets
 from UI.LoginUI import LoginUI
 from settings import LOGIN_DATA, LOGIN_URL
-import auth as AUTH
-import windows
+from killer import killer_win
+import utils.auth as AUTH
+import utils.windows as WINDOWS
 
 class login_win(QtWidgets.QMainWindow, LoginUI):
 	def __init__(self):
@@ -28,7 +29,8 @@ class login_win(QtWidgets.QMainWindow, LoginUI):
 			QtWidgets.QMessageBox.information(self, "成功", res_login_msg)
 			self.close()
 
-			windows.killer_show.show()
+			WINDOWS._killer_show = killer_win()
+			WINDOWS._killer_show.show()
 		else:
 			QtWidgets.QMessageBox.critical(self, "错误", res_login_msg)
 

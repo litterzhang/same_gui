@@ -8,7 +8,6 @@ class ProductListItemUI(QtWidgets.QWidget):
 		self.ProductData = None
 		self.listview = listview
 		self.listitem = None
-		self.Selected = False
 		self.textQVBoxLayout = QtWidgets.QVBoxLayout()
 		self.textUpQLabel    = QtWidgets.QLabel()
 		self.textMidQLabel   = QtWidgets.QLabel()
@@ -47,12 +46,6 @@ class ProductListItemUI(QtWidgets.QWidget):
 		self.listview.addItem(p_list_item)
 		self.listview.setItemWidget(p_list_item, self)
 		self.listitem = p_list_item
-
-	def select(self):
-		self.Selected = True
-
-	def unselect(self):
-		self.Selected = False
 
 	def setTextUp(self, i, t):
 		self.textUpQLabel.setText('%s %s' % (i, t))
